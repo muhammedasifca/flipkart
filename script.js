@@ -1,23 +1,21 @@
-
 // Fetching data// Fetching data// Fetching data
 
-getData()
-let allMobile
+getData();
+let allMobile;
 
 async function getData() {
-    const res=await fetch("./data.json")
-    const data=await res.json()
-    allMobile=data.mobiles
-    filterData(allMobile)
+  const res = await fetch("./data.json");
+  const data = await res.json();
+  allMobile = data.mobiles;
+  filterData(allMobile);
 }
 // Fetching data// Fetching data// Fetching data****
 
 // mobile rendering to DOM// mobile rendering to DOM
-const rightMain=document.querySelector("#rightMain")
-function showAllMobile(mobiles){
-    
-    mobiles.forEach((mobile) => {       
-        rightMain.innerHTML+=`
+const rightMain = document.querySelector("#rightMain");
+function showAllMobile(mobiles) {
+  mobiles.forEach((mobile) => {
+    rightMain.innerHTML += `
                     <div class="mobile">
                         <div class="mobile-in">
                             <div class="mobile-img-container">
@@ -73,296 +71,240 @@ function showAllMobile(mobiles){
                         </div>
                     </div>
         
-        `      
-    });
+        `;
+  });
 }
 // mobile rendering to DOM// mobile rendering to DOM****
 
-
 // filtering the Data and Manupulating DOM// filtering the Data and Manupulating DOM
-const checkBoxes=document.querySelectorAll("input[type='checkbox']")
+const checkBoxes = document.querySelectorAll("input[type='checkbox']");
 
-let arrayCheck=[]
-let mob=[]
-let isAssure=true
+let arrayCheck = [];
+let mob = [];
+let isAssure = true;
 
 function filterData(data) {
-    mobiles=data     
-    checkBoxes.forEach((checkBox,index)=>{
-        checkBox.addEventListener("click",(e)=>{
-            
-            s=e.target.id    
-             
-            if (e.target.id=="apple") {
-                
-                console.log(s);
-                if(e.target.checked){
-                    const apple=mobiles.filter(mobile=>(mobile.brand=="apple"))
-                    mob.push(apple)
-                    console.log(mob);
-                    rightMain.innerHTML=""
-                    showAllMobile(mob.flat())
-                    isAssure=false
-               }
-               else{ 
-                   console.log(s);
-                    isAssure=true
-                    mob=mob.flat().filter(item=>(item.brand!=s))
-                    
-                    
-                    console.log("check",mob);
-                    if (mob.length===0) {
-                        console.log("hi");
-                        
-                        rightMain.innerHTML=""
-                        showAllMobile(mobiles)
-                    }
-                    else{
-                        rightMain.innerHTML=""
-                        showAllMobile(mob.flat())
-                    }
-                           
-                   
-               }
-                
-            }
-            else if(e.target.id=="samsung"){
-                if(e.target.checked){
-                    const samsung=mobiles.filter(mobile=>(mobile.brand=="samsung"))
-                    mob.push(samsung)
-                    console.log(mob);     
-                    rightMain.innerHTML=""
-                    showAllMobile(mob.flat())
-                    isAssure=false
-               }
-               else{
-                    isAssure=true   
-                    mob=mob.flat().filter(item=>(item.brand!=s))
-                    console.log(mob);
-                    if (mob.length===0) {
-                        console.log("hi");
-                        
-                        rightMain.innerHTML=""
-                        showAllMobile(mobiles)
-                    }
-                    else{
-                        rightMain.innerHTML=""
-                        
-                        showAllMobile(mob.flat())
-                    }
-                    
-               }
+  mobiles = data;
+  checkBoxes.forEach((checkBox, index) => {
+    checkBox.addEventListener("click", (e) => {
+      s = e.target.id;
 
-            }
-            else if(e.target.id=="google"){
-                if(e.target.checked){
-                    const google=mobiles.filter(mobile=>(mobile.brand=="google"))
-                    mob.push(google)
-                    console.log(mob);     
-                    rightMain.innerHTML=""
-                    showAllMobile(mob.flat())
-                    isAssure=false
-               }
-               else{
-                    isAssure=true
-                    mob=mob.flat().filter(item=>(item.brand!=s))
-                    console.log(mob);
-                    if (mob.length===0) {
-                        console.log("hi");
-                        
-                        rightMain.innerHTML=""
-                        showAllMobile(mobiles)
-                    }
-                    else{
-                        rightMain.innerHTML=""
-                        
-                        showAllMobile(mob.flat())
-                    }
-                    
-               }
+      if (e.target.id == "apple") {
+        console.log(s);
+        if (e.target.checked) {
+          const apple = mobiles.filter((mobile) => mobile.brand == "apple");
+          mob.push(apple);
+          console.log(mob);
+          rightMain.innerHTML = "";
+          showAllMobile(mob.flat());
+          isAssure = false;
+        } else {
+          console.log(s);
+          isAssure = true;
+          mob = mob.flat().filter((item) => item.brand != s);
 
-            }
-            else if(e.target.id=="motorola"){
-                if(e.target.checked){
-                    const motorola=mobiles.filter(mobile=>(mobile.brand=="motorola"))
-                    mob.push(motorola)
-                    console.log(mob);     
-                    rightMain.innerHTML=""
-                    showAllMobile(mob.flat())
-                    isAssure=false
-               }
-               else{
-                    isAssure=true
-                    mob=mob.flat().filter(item=>(item.brand!=s))
-                    console.log(mob);
-                    if (mob.length===0) {
-                        console.log("hi");
-                        
-                        rightMain.innerHTML=""
-                        showAllMobile(mobiles)
-                    }
-                    else{
-                        rightMain.innerHTML=""
-                        
-                        showAllMobile(mob.flat())
-                    }
-                    
-               }  
+          console.log("check", mob);
+          if (mob.length === 0) {
+            console.log("hi");
 
-            }
+            rightMain.innerHTML = "";
+            showAllMobile(mobiles);
+          } else {
+            rightMain.innerHTML = "";
+            showAllMobile(mob.flat());
+          }
+        }
+      } else if (e.target.id == "samsung") {
+        if (e.target.checked) {
+          const samsung = mobiles.filter((mobile) => mobile.brand == "samsung");
+          mob.push(samsung);
+          console.log(mob);
+          rightMain.innerHTML = "";
+          showAllMobile(mob.flat());
+          isAssure = false;
+        } else {
+          isAssure = true;
+          mob = mob.flat().filter((item) => item.brand != s);
+          console.log(mob);
+          if (mob.length === 0) {
+            console.log("hi");
 
-            else if(e.target.id=="vivo"){
-                if(e.target.checked){
-                    const vivo=mobiles.filter(mobile=>(mobile.brand=="vivo"))
-                    mob.push(vivo)
-                    console.log(mob);     
-                    rightMain.innerHTML=""
-                    showAllMobile(mob.flat())
-                    isAssure=false
-               }
-               else{
-                    isAssure=true
-                    mob=mob.flat().filter(item=>(item.brand!=s))
-                    console.log(mob);
-                    if (mob.length===0) {
-                        console.log("hi");
-                        
-                        rightMain.innerHTML=""
-                        showAllMobile(mobiles)
-                    }
-                    else{
-                        rightMain.innerHTML=""
-                        
-                        showAllMobile(mob.flat())
-                    }
-                    
-               }
+            rightMain.innerHTML = "";
+            showAllMobile(mobiles);
+          } else {
+            rightMain.innerHTML = "";
 
-            }
-            else if(e.target.id=="oppo"){
-                if(e.target.checked){
-                    const oppo=mobiles.filter(mobile=>(mobile.brand=="oppo"))
-                    mob.push(oppo)
-                    console.log(mob);     
-                    rightMain.innerHTML=""
-                    showAllMobile(mob.flat())
-                    isAssure=false
-               }
-               else{
-                    isAssure=true
-                    mob=mob.flat().filter(item=>(item.brand!=s))
-                    console.log(mob);
-                    if (mob.length===0) {
-                        console.log("hi");
-                        
-                        rightMain.innerHTML=""
-                        showAllMobile(mobiles)
-                    }
-                    else{
-                        rightMain.innerHTML=""
-                        
-                        showAllMobile(mob.flat())
-                    }
-               }
+            showAllMobile(mob.flat());
+          }
+        }
+      } else if (e.target.id == "google") {
+        if (e.target.checked) {
+          const google = mobiles.filter((mobile) => mobile.brand == "google");
+          mob.push(google);
+          console.log(mob);
+          rightMain.innerHTML = "";
+          showAllMobile(mob.flat());
+          isAssure = false;
+        } else {
+          isAssure = true;
+          mob = mob.flat().filter((item) => item.brand != s);
+          console.log(mob);
+          if (mob.length === 0) {
+            console.log("hi");
 
-            }
+            rightMain.innerHTML = "";
+            showAllMobile(mobiles);
+          } else {
+            rightMain.innerHTML = "";
 
+            showAllMobile(mob.flat());
+          }
+        }
+      } else if (e.target.id == "motorola") {
+        if (e.target.checked) {
+          const motorola = mobiles.filter(
+            (mobile) => mobile.brand == "motorola"
+          );
+          mob.push(motorola);
+          console.log(mob);
+          rightMain.innerHTML = "";
+          showAllMobile(mob.flat());
+          isAssure = false;
+        } else {
+          isAssure = true;
+          mob = mob.flat().filter((item) => item.brand != s);
+          console.log(mob);
+          if (mob.length === 0) {
+            console.log("hi");
 
-            else if(e.target.id=="plusAssured"){
-                let u="img/assured.png"
-               
-                if(e.target.checked){    
-                    if(isAssure){
-                        const assured=mobiles.filter(mobile=>(mobile.assured==u))
-                        mob.push(assured)
-                        rightMain.innerHTML=""
-                        showAllMobile(mob.flat())
+            rightMain.innerHTML = "";
+            showAllMobile(mobiles);
+          } else {
+            rightMain.innerHTML = "";
 
-                    }
-                    else{
-                        const assured=mob.flat().filter(mobile=>(mobile.assured==u))
-                        mob=[]
-                        mob.push(assured)              
-                        console.log(mob.flat()) 
-                        rightMain.innerHTML=""
-                        showAllMobile(mob.flat())
-                    }
-                }                
-                else{                          
-                                                  
-                    console.log(mob);
+            showAllMobile(mob.flat());
+          }
+        }
+      } else if (e.target.id == "vivo") {
+        if (e.target.checked) {
+          const vivo = mobiles.filter((mobile) => mobile.brand == "vivo");
+          mob.push(vivo);
+          console.log(mob);
+          rightMain.innerHTML = "";
+          showAllMobile(mob.flat());
+          isAssure = false;
+        } else {
+          isAssure = true;
+          mob = mob.flat().filter((item) => item.brand != s);
+          console.log(mob);
+          if (mob.length === 0) {
+            console.log("hi");
 
-                    if (mob.length===0) {
-                        console.log("hi");
-                        rightMain.innerHTML=""
-                        showAllMobile(mobiles)
-                    }      
-                    else{
-                        mob=mob.flat().filter(item=>(item.assured!=u || item.assured ==u)) 
-                        rightMain.innerHTML=""
-                        showAllMobile(mob.flat())
-                    }
-                    
-                }
+            rightMain.innerHTML = "";
+            showAllMobile(mobiles);
+          } else {
+            rightMain.innerHTML = "";
 
-            }
+            showAllMobile(mob.flat());
+          }
+        }
+      } else if (e.target.id == "oppo") {
+        if (e.target.checked) {
+          const oppo = mobiles.filter((mobile) => mobile.brand == "oppo");
+          mob.push(oppo);
+          console.log(mob);
+          rightMain.innerHTML = "";
+          showAllMobile(mob.flat());
+          isAssure = false;
+        } else {
+          isAssure = true;
+          mob = mob.flat().filter((item) => item.brand != s);
+          console.log(mob);
+          if (mob.length === 0) {
+            console.log("hi");
 
-            else{
-                showAllMobile(mobiles)
-            }
+            rightMain.innerHTML = "";
+            showAllMobile(mobiles);
+          } else {
+            rightMain.innerHTML = "";
 
+            showAllMobile(mob.flat());
+          }
+        }
+      } else if (e.target.id == "plusAssured") {
+        let u = "img/assured.png";
 
-            clickHere(checkBox,e)
-          
-            
+        if (e.target.checked) {
+          if (isAssure) {
+            const assured = mobiles.filter((mobile) => mobile.assured == u);
+            mob.push(assured);
+            rightMain.innerHTML = "";
+            showAllMobile(mob.flat());
+          } else {
+            const assured = mob.flat().filter((mobile) => mobile.assured == u);
+            mob = [];
+            mob.push(assured);
+            console.log(mob.flat());
+            rightMain.innerHTML = "";
+            showAllMobile(mob.flat());
+          }
+        } else {
+          console.log(mob);
 
-            
-        })
+          if (mob.length === 0) {
+            console.log("hi");
+            rightMain.innerHTML = "";
+            showAllMobile(mobiles);
+          } else {
+            mob = mob
+              .flat()
+              .filter((item) => item.assured != u || item.assured == u);
+            rightMain.innerHTML = "";
+            showAllMobile(mob.flat());
+          }
+        }
+      } else {
+        showAllMobile(mobiles);
+      }
 
-    })
-    showAllMobile(mobiles)
-}                              
-
-  
-const ClearBtn=document.querySelector(".clear")
-function showClearAll(){
-    if(arrayCheck.length!=0){
-        
-        console.log(ClearBtn);
-        ClearBtn.classList.remove("hide")
-    }
-    
+      clickHere(checkBox, e);
+    });
+  });
+  showAllMobile(mobiles);
 }
-function removeClearAll(){
-    if(arrayCheck.length==0){
-        ClearBtn.classList.add("hide")
-    }
-}    
 
-ClearBtn.addEventListener("click",()=>{
-    window.location.reload()     
-})
+const ClearBtn = document.querySelector(".clear");
+function showClearAll() {
+  if (arrayCheck.length != 0) {
+    console.log(ClearBtn);
+    ClearBtn.classList.remove("hide");
+  }
+}
+function removeClearAll() {
+  if (arrayCheck.length == 0) {
+    ClearBtn.classList.add("hide");
+  }
+}
 
+ClearBtn.addEventListener("click", () => {
+  window.location.reload();
+});
 
 // filtering the Data and Manupulating DOM// filtering the Data and Manupulating DOM*****
 
 // Condition for showing Click here Button
 
-function clickHere(checkBox,e) {
-                
-    if (checkBox.checked) {
-
-        console.log(e.target.id)
-        arrayCheck.push(e.target.id)
-        console.log("data is ad",arrayCheck);
-        showClearAll()   
-    }
-    else{
-        arrayCheck=arrayCheck.filter(item=>item!=e.target.id)
-        console.log("data is removed",arrayCheck);
-        removeClearAll()
-    }
-
+function clickHere(checkBox, e) {
+  if (checkBox.checked) {
+    console.log(e.target.id);
+    arrayCheck.push(e.target.id);
+    console.log("data is ad", arrayCheck);
+    showClearAll();
+  } else {
+    arrayCheck = arrayCheck.filter((item) => item != e.target.id);
+    console.log("data is removed", arrayCheck);
+    removeClearAll();
+  }
 }
-// Condition for showing Click here Button*****
 
+// Condition for showing Click here Button*****
