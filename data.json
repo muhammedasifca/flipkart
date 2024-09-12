@@ -1,6 +1,25 @@
 {
     "mobiles":[
-      
+        {
+            "mobImg":"img/vivo.jpeg",
+            "mobName":"vivo T3 Pro 5G(Emerald Green, 128 GB)",
+            "star":4.6,
+            "rating":"2,554",
+            "reviews":"118",
+            "rom":"8 GB RAM | 128 GB ROM",
+            "display":"17.2 cm (6.77 inch) Full HD+ AMOLED Display",
+            "camera":"50MP + 8MP | 16MP Front Camera",
+            "battery":"5500 mAh Battery",
+            "chip":"Snapdragon 7 Gen 3 Processor",
+            "warranty":"1 Year Warranty on Handset and 6 Months Warranty on Accessories",
+            "disRate":"24,999",
+            "retRate":"29,999",
+            "off":"16% off",
+            "exchange":"17,150",
+            "emi":"3,834",
+            "assured":"img/assured.png",
+            "brand":"vivo"          
+        },
         {
             "mobImg":"img/15pro.jpeg",
             "mobName":"Apple iPhone 15 Pro (Black, Titanium, 256 GB)",
@@ -19,9 +38,7 @@
             "exchange":"41350",
             "emi":"12,555",
             "assured":"img/assured.png",
-            "brand":"apple"
-
-
+            "brand":"apple"          
         },
         {
             "mobImg":"img/ip3.jpeg",
@@ -269,7 +286,7 @@
             "exchange":"17,150",
             "emi":"2,799",
             "assured":"img/assured.png",
-            "brand":"moto"
+            "brand":"motorola"
         },
         {
             "mobImg":"img/moto2.jpeg",
@@ -289,7 +306,7 @@
             "exchange":"10,800",
             "emi":"1,799",
             "assured":"img/assured.png",
-            "brand":"moto"
+            "brand":"motorola"
         },
         {
             "mobImg":"img/moto3.jpeg",
@@ -309,7 +326,7 @@
             "exchange":"5,150",
             "emi":"1,199",
             "assured":"",
-            "brand":"moto"
+            "brand":"motorola"
         },
         {
             "mobImg":"img/moto3.jpeg",
@@ -329,7 +346,7 @@
             "exchange":"5,150",
             "emi":"1,199",
             "assured":"",
-            "brand":"moto"
+            "brand":"motorola"
         },
         {
             "mobImg":"img/moto4.jpeg",
@@ -349,7 +366,7 @@
             "exchange":"21,050",
             "emi":"3,999",
             "assured":"img/assured.png",
-            "brand":"moto"
+            "brand":"motorola"
         },
         {
             "mobImg":"img/moto5.jpeg",
@@ -369,7 +386,7 @@
             "exchange":"444",
             "emi":"233",
             "assured":"",
-            "brand":"moto"
+            "brand":"motorola"
         },
         {
             "mobImg":"img/g1.jpeg",
